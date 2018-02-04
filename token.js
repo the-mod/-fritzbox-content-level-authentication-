@@ -2,7 +2,7 @@
 
 const crypto = require('crypto');
 
-const nonce = 'token you got';
+const nonce = 'nonce you got';
 const realm = 'realm you got';
 const user = 'user';
 const password = 'password';
@@ -10,5 +10,5 @@ const password = 'password';
 const secret = crypto.createHash('md5').update(`${user}:${realm}:${password}`).digest('hex');
 console.log('secret', secret);
 
-const hash = crypto.createHash('md5').update(`${tmp}:${nonce}`).digest('hex');
-console.log(hash);
+const hash = crypto.createHash('md5').update(`${secret}:${nonce}`).digest('hex');
+console.log('hash', hash);
